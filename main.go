@@ -19,5 +19,7 @@ func main() {
 		commands.Init()
 	case "status":
 		commands.Status()
+	case "add":
+		commands.Add(os.Args[2])
 	}
 }
