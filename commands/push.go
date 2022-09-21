@@ -15,4 +15,5 @@ func Push() {
 	}
 
 	fmt.Println(string(stdout))
+	fmt.Println("Pushed!")
 }
