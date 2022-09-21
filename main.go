@@ -9,7 +9,9 @@ import (
 )
 
 var commitCmd = flag.NewFlagSet("commit", flag.ExitOnError)
-var commitMsg = commitCmd.String("m", "", "Commit Message")
+var commitMsg = commitCmd.String("m", "Default message", "Commit Message")
+var pushCmd = flag.NewFlagSet("push", flag.ExitOnError)
+var pushUpstream = pushCmd.Bool("up", true, "Set upstream branch")
 
 func main() {
 	tools.OpSys()
@@ -28,5 +30,7 @@ func main() {
 	case "commit":
 		commitCmd.Parse(os.Args[2:])
 		commands.Commit(*commitMsg)
+	case "push":
+		pushCmd.Parse(os.Args[2:])
 	}
 }
