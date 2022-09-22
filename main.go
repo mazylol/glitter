@@ -26,7 +26,10 @@ func main() {
 	case "add":
 		commands.Add(os.Args[2])
 	case "commit":
-		commitCmd.Parse(os.Args[2:])
+		err := commitCmd.Parse(os.Args[2:])
+		if err != nil {
+			return
+		}
 		commands.Commit(*commitMsg)
 	case "push":
 		commands.Push()
